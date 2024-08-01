@@ -1,37 +1,27 @@
 #include "main.h"
 
 /**
- * fill_binary_array - prints decimal in binary
- * @binary: pointer to binary
- * @int_in: input number
- * @isneg: if the input number is negative
- * @limit: the size of the binary
- * Return: number of chars printed
+ * fill_binary_array - Fills a binary array with the binary representation.
+ * @binary: The binary array to fill.
+ * @n: The number to convert.
+ * @start: Starting index in the array.
+ * @size: Size of the binary array.
+ * Return: The filled binary array.
  */
-char *fill_binary_array(char *binary, long int int_in, int isneg, int limit)
+char *fill_binary_array(char *binary, unsigned int n, unsigned int start, unsigned int size)
 {
-	int i;
+	unsigned int I;
 
-	for (i = 0; i < limit; i++)
-		binary[i] = '0';
-	binary[limit] = '\0';
-	for (i = limit - 1; int_in > 1; i--)
+	// Initialize the binary array with '0'
+	for (i = 0; i < size; i++)
+	binary[i] = '0';
+	binary[size] = '\0'; // Null-terminate the string
+
+	// Convert number to binary
+	for (i = 0; i < size; i++)
 	{
-		if (int_in == 2)
-			binary[i] = '0';
-		else
-			binary[i] = (int_in % 2) + '0';
-		int_in /= 2;
+	if (n & (1 << (size - i - 1)))
+	binary[i] = '1';
 	}
-	if (int_in != 0)
-		binary[i] = '1';
-	if (isneg)
-	{
-		for (i = 0; binary[i]; i++)
-			if (binary[i] == '0')
-				binary[i] = '1';
-			else
-				binary[i] = '0';
-	}
-	return (binary);
+	return binary;
 }
