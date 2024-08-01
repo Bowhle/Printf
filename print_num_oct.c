@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * prinnoct - print the number in octal begining with zero
+ * prinnoct - prints a number in octal beginning with zero
  * @arguments: input string
  * @buf: buffer pointer
- * @ibuf: index for buffer pointer
+ * @ibuf: index for a buffer pointer
  * Return: number of chars printed
  */
 int prinnoct(va_list arguments, char *buf, unsigned int ibuf)
