@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * prinsint - prints int begining with space
- * @arguments: input string
- * @buf: buffer pointer
- * @ibuf: index for buffer pointer
- * Return: number of chars printed
+ * prinsint - prints an integer beginning with space.
+ * @arguments: inputs a string.
+ * @buf: a buffer pointer.
+ * @ibuf: an index for a buffer pointer.
+ * Return: number of chars printed.
  */
 int prinsint(va_list arguments, char *buf, unsigned int ibuf)
 {
