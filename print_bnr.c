@@ -1,42 +1,44 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * print_bnr - prints a decimal in binary
- * @arguments: input to a string
- * @buf: buffer pointer
- * @ibuf: index for a buffer pointer
- * Return: number of chars printed
+ * print_bnr - Prints a decimal number as binary.
+ * @arguments: The list of arguments.
+ * @buf: The buffer pointer.
+ * @ibuf: The index for the buffer pointer.
+ * Return: The number of characters printed.
  */
 int print_bnr(va_list arguments, char *buf, unsigned int ibuf)
 {
-	int int_input, count, i, first_one, isnegative;
-	char *binary;
+    int int_input, count, i;
+    char binary[33]; // 32 bits + null terminator
 
-	int_input = va_arg(arguments, int);
-	isnegative = 0;
-	if (int_input == 0)
-	{
-		ibuf = handl_buf(buf, '0', ibuf);
-		return (1);
-	}
-	if (int_input < 0)
-	{
-		int_input = (int_input * -1) - 1;
-		isnegative = 1;
-	}
-	binary = malloc(sizeof(char) * (32 + 1));
-	binary = fill_binary_array(binary, int_input, isnegative, 32);
-	first_one = 0;
-	for (count = i = 0; binary[i]; i++)
-	{
-		if (first_one == 0 && binary[i] == '1')
-			first_one = 1;
-		if (first_one == 1)
-		{
-			ibuf = handl_buf(buf, binary[i], ibuf);
-			count++;
-		}
-	}
-	free(binary);
-	return (count);
+    int_input = va_arg(arguments, int);
+
+    // Handle the case for 0 directly
+    if (int_input == 0)
+    {
+        ibuf = handl_buf(buf, '0', ibuf);
+        return (1);
+    }
+
+    // Fill the binary representation
+    fill_binary_array(binary, int_input, 0, 32);
+
+    // Print binary representation
+    count = 0;
+    int first_one = 0;
+    for (i = 0; i < 32; i++)
+    {
+        if (binary[i] == '1')
+            first_one = 1;
+
+        if (first_one)
+        {
+            ibuf = handl_buf(buf, binary[i], ibuf);
+            count++;
+        }
+    }
+
+    return (count);
 }
