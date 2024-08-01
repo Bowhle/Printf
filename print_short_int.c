@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * prinhint - prints a short integer
- * @arguments: input string
- * @buf: buffer pointer
- * @ibuf: index for buffer pointer
+ * prinhint - prints a short integer.
+ * @arguments: inputs a string.
+ * @buf: a buffer pointer.
+ * @ibuf: an index for a buffer pointer.
  * Return: number of chars printed.
  */
 int prinhint(va_list arguments, char *buf, unsigned int ibuf)
