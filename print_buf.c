@@ -3,8 +3,8 @@
 /**
  * print_buf - prints buffer
  * @buf: buffer pointer
- * @nbuf: number of bytes to print
- * Return: number of bytes printed.
+ * @nbuf: the number of bytes to print
+ * Return: the number of bytes printed
  */
 int print_buf(char *buf, unsigned int nbuf)
 {
